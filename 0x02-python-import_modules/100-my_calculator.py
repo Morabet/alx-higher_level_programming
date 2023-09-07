@@ -10,7 +10,8 @@ if __name__ == "__main__":
 
     a = int(argv[1])
     b = int(argv[3])
-    op = int(argv[2])
+    op = argv[2]
+
     if op == '+':
 	result = add(a, b)
     elif op == '-':
