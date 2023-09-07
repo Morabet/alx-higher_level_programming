@@ -10,18 +10,17 @@ if __name__ == "__main__":
 
     a = int(argv[1])
     b = int(argv[3])
-
-    match argv[2]:
-        case '+':
-            result = add(a, b)
-        case '-':
-            result = sub(a, b)
-        case '*':
-            result = mul(a, b)
-        case '/':
-            result = div(a, b)
-        case _:
-            result = "NULL"
+    op = int(argv[2])
+    if op == '+':
+	result = add(a, b)
+    elif op == '-':
+	result = sub(a, b)
+    elif op == '*':
+	result = mul(a, b)
+    elif op == '/':
+	result = div(a, b)
+    else :
+    	result = "NULL"
 
     if result == "NULL":
         print("Unkown operator. Available operators: +, -, * and /")
