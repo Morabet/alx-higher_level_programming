@@ -1,53 +1,87 @@
 #include "lists.h"
 
 /**
- * reverse_list - reverses a linked list
- * @head: pointer to the first node in the list
- * Return: pointer to the first node in the new list
+ * reverse_list - reverse a linked list.
+ * @head: head of the linked list.
+ * Return: void.
  */
 void reverse_list(listint_t **head)
 {
-	listint_t *prev = NULL;
-	listint_t *current = *head;
-	listint_t *next = NULL;
+	listint_t *current, *prev, *next;
 
-	while (current != NULL)
+	if (!*head)
+		return;
+
+	prev = NULL;
+	current = *head;
+	next = *head;
+
+	while (current)
 	{
 		next = current->next;
 		current->next = prev;
 		prev = current;
 		current = next;
 	}
+
 	*head = prev;
 }
+
 /**
- * is_palindrome - checks if a linked list is a palindrome
- * @head: double pointer to the linked list
- *
- * Return: 1 if it is, 0 if not
+ * size_list - get the size of the list.
+ * @head: head of the list.
+ * Return: integer.
+ */
+int size_list(listint_t *head)
+{
+	int size = 0;
+
+	while (head)
+	{
+		size++;
+		head = head->next;
+	}
+	return (size);
+}
+
+/**
+ * is_palindrome - check if a linked list is palindrom.
+ * @head: heade of the linked list.
+ * Return: return 1 if it is palindrom else 0.
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *temp = *head;
-	listint_t *dup = NULL;
+	listint_t *first, *second;
+	int i = 0, size, m, div;
 
-	if (temp == NULL)
+	if (!*head)
 		return (1);
-	while (temp != NULL)
-	{
-		add_nodeint_end(&dup, temp->n);
-		temp = temp->next;
-	}
-	reverse_list(&dup);
-	temp = *head;
 
-	while (dup != NULL && temp != NULL)
+	first = *head;
+	second = *head;
+
+	size = size_list(*head);
+	div = size / 2;
+	if (size % 2 == 0)
+		m = div;
+	else
+		m = div + 1;
+
+	while (second && i < m)
 	{
-		if (dup->n != temp->n)
-			return (0);
-		dup = dup->next;
-		temp = temp->next;
+		i++;
+		second = second->next;
 	}
-	free_listint(dup);
+
+	reverse_list(&second);
+
+	while (second)
+	{
+		if (first->n != second->n)
+			return (0);
+		first = first->next;
+		second = second->next;
+	}
+
 	return (1);
 }
