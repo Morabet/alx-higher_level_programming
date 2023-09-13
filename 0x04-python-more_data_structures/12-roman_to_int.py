@@ -2,30 +2,20 @@
 
 def roman_to_int(roman_string):
 
-    dict = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
-    values = [dict[char] for char in roman_string]
-    result = 0
+    dictt = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+    num = 0
 
     if (not isinstance(roman_string, str) or roman_string is None):
         return (0)
 
-    if len(roman_string) == 1:
-        for value in values:
-            result += value
+    for i in range(len(roman_string)):
+        if dictt.get(roman_string[i], 0) == 0:
+            return (0)
 
-    if roman_string[0] > roman_string[-1]:
-        for value in values:
-            result += value
+        if (i != (len(roman_string) - 1) and
+                dictt[roman_string[i]] < dictt[roman_string[i + 1]]):
+            num += dictt[roman_string[i]] * -1
+        else:
+            num += dictt[roman_string[i]]
 
-    if roman_string[0] == roman_string[-1]:
-        for value in values:
-            result += value
-
-    if roman_string[0] < roman_string[-1]:
-        for value in reversed(values):
-            if result == 0:
-                result = value
-            else:
-                result -= value
-
-    return result
+    return (num)
