@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from functools import reduce
+#from functools import reduce
 
 
 def roman_to_int(roman_string):
@@ -11,12 +11,20 @@ def roman_to_int(roman_string):
         return (0)
 
     if len(roman_string) == 1:
-        sum = reduce(lambda x, y: x + y, values)
+        for value in values:
+            sum += value
+       # sum = reduce(lambda x, y: x + y, values)
     if roman_string[0] > roman_string[-1]:
-        sum = reduce(lambda x, y: x + y, values)
+        for value in values:
+            sum += value
+        #sum = reduce(lambda x, y: x + y, values)
     if roman_string[0] == roman_string[-1]:
-        sum = reduce(lambda x, y: x + y, values)
+        for value in values:
+            sum += value
+       # sum = reduce(lambda x, y: x + y, values)
     if roman_string[0] < roman_string[-1]:
-        sum = reduce(lambda x, y: x - y, reversed(values))
+        for value in reversed(values):
+            sum -= value
+        #sum = reduce(lambda x, y: x - y, reversed(values))
 
     return sum
