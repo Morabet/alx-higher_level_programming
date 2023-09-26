@@ -74,7 +74,8 @@ class Square:
                 print("#" * self.__size)
 
     def __str__(self):
-        """print the square in # """
+
+        """Printing a Square instance should have the same behavior as my_print()"""
         if self.__position[1] != 0:
             [print() for i in range(self.__position[1])]
 
