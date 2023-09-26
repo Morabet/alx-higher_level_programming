@@ -75,7 +75,7 @@ class Square:
 
     def __str__(self):
 
-        """Printing a Square instance should have the same behavior as my_print()"""
+        """print the square with str"""
         if self.__position[1] != 0:
             [print() for i in range(self.__position[1])]
 
