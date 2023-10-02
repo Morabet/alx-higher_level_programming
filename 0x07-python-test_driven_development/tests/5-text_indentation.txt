@@ -1,0 +1,85 @@
+The test file for '5-text_indentation.py' module
+================================================
+
+'text_indentation' a function that prints a text with 2 new lines after each of these characters: ., ? and :
+
+Usage
+=====
+
+	Text is printed with two new lines after each of the characters ``.``, ``?``,
+     	and ``:``.
+
+Importing function:
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+::
+	>>> text = "Ali. Moussa"
+	>>> text_indentation(text)
+	Ali.
+	<BLANKLINE>
+	Moussa
+
+::
+	>>> text = "Ali:"
+	>>> text_indentation(text)
+	Ali:
+	<BLANKLINE>
+
+::
+	>>> text = "     Ali   "
+	>>> text_indentation(text)
+	Ali   
+
+::
+	>>> text = "     Ali. Moussa.    "
+	>>> text_indentation(text)
+	Ali.
+	<BLANKLINE>
+	Moussa.
+	<BLANKLINE>
+
+::
+	>>> text = "      "
+	>>> text_indentation(text)
+
+
+::
+	>>> text = "    Ali.     Moussa:   hi.   "
+	>>> text_indentation(text)
+	Ali.
+	<BLANKLINE>
+	Moussa:
+	<BLANKLINE>
+	hi.
+	<BLANKLINE>
+
+New lines are only printed for the characters ``.``, ``?``, and ``:`` -
+text not ending with one of these characters is not ended with a new line.
+
+::
+	>>> text = "\n\n Ali."
+	>>> text_indentation(text)
+	<BLANKLINE>
+	<BLANKLINE>
+	Ali.
+	<BLANKLINE>
+
+
+Invalid Text
+============
+
+The paramter ``text`` must be a string. Otherwise, a TypeError is raised.
+
+::
+
+	>>> text_indentation(7)
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
+::
+
+	>>> text_indentation(None)
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
