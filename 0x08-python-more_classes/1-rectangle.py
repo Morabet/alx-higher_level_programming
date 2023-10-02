@@ -6,7 +6,14 @@ class Rectangle:
     """defining the 'Rectangle' class"""
 
     def __init__(self, width=0, height=0):
-        """Defining the 'width' and 'heght values"""
+        """Defining the 'width' and 'heght values
+         Args:
+            width: represents the width of the rectangle
+            height: represents the height of the rectangle
+        Raises:
+            TypeError: if size is not integer
+            ValueError: if size is less than zero
+        """
 
         self.__height = height
         self.__width = width
@@ -18,11 +25,7 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        """setter for the width attr
-        Raises:
-            TypeError: if value not an integer
-            ValueError: if value < 0
-        """
+        """setter for the width attr"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
 
@@ -39,11 +42,7 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """setter for the height attr
-        Raises:
-            TypeError: if value not an integer
-            ValueError: if value < 0
-        """
+        """setter for the height attr"""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
 
