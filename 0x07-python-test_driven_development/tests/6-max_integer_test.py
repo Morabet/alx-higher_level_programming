@@ -51,6 +51,8 @@ class TestMaxInteger(unittest.TestCase):
         my_list = "Ali"
         self.assertEqual(max_integer(my_list), 'l')
 
+    def test_empty_string(self):
+        self.assertEqual(max_integer(""), None)
 
 if __name__ == '__main__':
     unittest.main()
