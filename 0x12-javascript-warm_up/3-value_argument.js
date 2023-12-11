@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const { argv } = require('node:process');
+const argv = process.argv;
 
 let i = 0;
 
