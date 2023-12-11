@@ -2,10 +2,4 @@
 
 const argv = process.argv;
 
-let i = 0;
-
-while (argv[i] !== undefined) {
-  if (i > 1) { console.log(argv[i]); }
-  i++;
-}
-if (i === 2) { console.log('No argument'); }
+if (argv[2] === undefined) { console.log('No argument'); } else { console.log(argv[2]); }
