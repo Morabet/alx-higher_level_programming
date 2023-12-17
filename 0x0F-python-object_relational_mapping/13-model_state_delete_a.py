@@ -27,8 +27,9 @@ if __name__ == "__main__":
 
     del_state = session.query(State).filter(State.name.like("%a%")).all()
     #  Delete the record if it exists
-    for dell in del_state:
-        session.delete(dell)
+    if del_state:
+        for dell in del_state:
+            session.delete(dell)
         session.commit()
 
     # Close the session

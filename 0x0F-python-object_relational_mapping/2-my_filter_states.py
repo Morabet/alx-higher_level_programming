@@ -23,7 +23,8 @@ if __name__ == "__main__":
     # Create a cursor object to interact with the database
     cursor = db.cursor()
 
-    sql_query = f"SELECT * FROM states WHERE name LIKE BINARY '{searched}'"
+    sql_query = "SELECT id, name FROM states "
+    sql_query += "WHERE name = '{}' ORDER BY id;".format(searched)
 
     try:
         # Execute the SQL query

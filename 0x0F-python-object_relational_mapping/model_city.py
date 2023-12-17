@@ -6,6 +6,7 @@ from model_state import Base, State
 
 
 class City(Base):
+    """Defining the City class"""
 
     __tablename__ = 'cities'
 
