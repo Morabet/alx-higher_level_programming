@@ -24,7 +24,7 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     sql_query = "SELECT id, name FROM states "
-    sql_query += "WHERE name LIKE '{}' ORDER BY id;".format(searched)
+    sql_query += "WHERE name LIKE BINARY'{}' ORDER BY id;".format(searched)
 
     try:
         # Execute the SQL query
