@@ -32,7 +32,7 @@ if __name__ == "__main__":
     #  Delete the record if it exists
     if del_state:
         for dell in del_state:
-            session.delete(dell)i
+            session.delete(dell)
 
         session.commit()
 

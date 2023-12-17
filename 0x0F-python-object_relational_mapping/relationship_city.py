@@ -6,7 +6,7 @@ from relationship_state import Base, State
 
 
 class City(Base):
-     """Defining the City class"""
+    """Defining the City class"""
 
     __tablename__ = 'cities'
 

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-
-"""prints all City objects from a database """
+"""
+prints all City objects from a database
+"""
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
