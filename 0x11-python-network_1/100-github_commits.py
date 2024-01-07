@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Listing 10 commits in a repo"""
 
 if __name__ == "__main__":
 
