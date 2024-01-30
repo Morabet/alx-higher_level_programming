@@ -17,13 +17,12 @@ request(filmurl, (err, response, body) => {
 });
 
 function printCharacters (characters, index) {
-  if (characters.length === index) return;
-  request(characters[index], (err, response, body) => {
-    if (err) {
-      console.log(err);
-    } else {
+  request(characters[index], function (error, response, body) {
+    if (!error) {
       console.log(JSON.parse(body).name);
-      printCharacters(characters, index + 1);
+      if (index + 1 < characters.length) {
+        printCharacters(characters, index + 1);
+      }
     }
   });
 }
