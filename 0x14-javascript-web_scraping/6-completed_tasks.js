@@ -1,22 +1,21 @@
 #!/usr/bin/node
 
-const argv = require('process').argv;
+const request = require('request');
+const url = process.argv[2];
 
-async function getCompleted (url) {
-  const request = new Request(url);
-  const response = await fetch(request);
-
-  const tasks = await response.json();
-  const completed = tasks.filter(task => task.completed === true);
-  const users = [...new Set(completed.map(task => task.userId))];
-  const obj = {};
-  for (const user of users) {
-    const count = completed.filter(com => com.userId === user).length;
-    obj[user] = count;
+request(url, (err, response, body) => {
+  if (err) console.log(err);
+  else {
+    const resp = {};
+    const json = JSON.parse(body);
+    for (let i = 0; i < json.length; i++) {
+      if (json[i].completed === true) {
+        if (resp[json[i].userId] === undefined) {
+          resp[json[i].userId] = 0;
+        }
+        resp[json[i].userId]++;
+      }
+    }
+    console.log(resp);
   }
-  console.log(obj);
-}
-
-if (argv.length >= 3) {
-  getCompleted(argv[2]);
-}
+});
