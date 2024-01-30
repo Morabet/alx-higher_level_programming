@@ -1,10 +1,18 @@
 #!/usr/bin/node
 
-const request = require('request');
 const argv = require('process').argv;
+const request = require('request');
+
+function getStatusCode (url) {
+  request.get(url, (error, response) => {
+    if (error) {
+      console.log(error);
+      return;
+    }
+    console.log(`code: ${response.statusCode}`);
+  });
+}
 
 if (argv.length >= 3) {
-  request(argv[2], (err, response) => {
-    if (err) { console.log(err); } else { console.log(`code :${response.statusCode}`); }
-  });
+  getStatusCode(argv[2]);
 }

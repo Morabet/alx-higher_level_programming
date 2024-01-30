@@ -3,9 +3,9 @@
 const argv = require('process').argv;
 const request = require('request');
 
-const film_url = `https://swapi-api.alx-tools.com/api/films/${argv[2]}/`;
+const filmurl = `https://swapi-api.alx-tools.com/api/films/${argv[2]}/`;
 
-request(film_url, (err, response, body) => {
+request(filmurl, (err, response, body) => {
   if (err) {
     console.log(err);
     return;
